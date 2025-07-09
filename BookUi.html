@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Public Domain eBooks</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="BookUi.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-10">
+        <div class="container mx-auto px-4 py-4 flex flex-col md:flex-row items-center justify-between">
+            <div class="flex items-center mb-4 md:mb-0">
+                <i class="fas fa-book-open text-2xl text-blue-600 mr-2"></i>
+                <h1 class="text-2xl font-bold text-blue-800">PublicEbook<span class="text-blue-600">Reader</span></h1>
+            </div>
+            
+            <!-- Search Bar -->
+            <div class="relative w-full md:w-96">
+                <div class="relative">
+                    <input type="text" id="searchInput" placeholder="Search books, authors..." 
+                           class="w-full px-4 py-2 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                    <button id="searchButton" class="absolute right-3 top-2 text-gray-500 hover:text-blue-600">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+                <div id="searchDropdown" class="absolute z-20 mt-1 w-full bg-white rounded-md shadow-lg border border-gray-200 hidden search-dropdown"></div>
+            </div>
+            
+            <nav class="hidden md:flex space-x-6 mt-4 md:mt-0">
+                <a href="#" class="text-gray-700 hover:text-blue-600 font-medium">Home</a>
+                <a href="#searchButton" class="text-gray-700 hover:text-blue-600 font-medium">Browse Books</a>
+                <a href="#Genre" class="text-gray-700 hover:text-blue-600 font-medium">Categories</a>
+                <a href="#About" class="text-gray-700 hover:text-blue-600 font-medium">About</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- Featured Books Section -->
+        <section class="mb-12">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold text-gray-800">E-Library</h2>
+            </div>
+            
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6" id="featuredBooks">
+                <!-- Featured books will be loaded here -->
+            </div>
+        </section>
+        
+        <!-- Recent Additions -->
+        <section>
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold text-gray-800">eBook Spotlight</h2>
+            </div>
+            
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6" id="recentBooks">
+                <!-- Recent books will be loaded here -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Book Detail Modal -->
+    <div id="bookModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden items-center justify-center p-4">
+        <div class="bg-white rounded-lg shadow-xl max-w-4xl w-full max-h-screen overflow-y-auto fade-in">
+            <div class="p-6">
+                <div class="flex justify-between items-start mb-4">
+                    <h2 id="modalTitle" class="text-2xl font-bold text-gray-800"></h2>
+                    <button id="closeModal" class="text-gray-500 hover:text-gray-700">
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
+                </div>
+                
+                <div class="flex flex-col md:flex-row gap-6">
+                    <div class="md:w-1/3 flex justify-center">
+                        <img id="modalCover" src="" alt="Book Cover" class="book-detail-cover rounded-lg shadow-md w-full">
+                    </div>
+                    
+                    <div class="md:w-2/3">
+                        <div class="flex items-center mb-4">
+                            <span id="modalAuthor" class="text-gray-700 font-medium"></span>
+                            <span class="mx-2 text-gray-400">•</span>
+                            <span id="modalYear" class="text-gray-600"></span>
+                        </div>
+                        
+                        <div class="flex items-center mb-4">
+                            <div id="modalRating" class="flex mr-4"></div>
+                            <span id="modalPages" class="text-gray-600"></span>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <h3 class="text-lg font-semibold text-gray-800 mb-2">Description</h3>
+                            <p id="modalDescription" class="text-gray-700"></p>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <h3 class="text-lg font-semibold text-gray-800 mb-2">Available Formats</h3>
+                            <div id="modalFormats" class="flex flex-wrap gap-2"></div>
+                        </div>
+                        
+                        <div class="flex flex-wrap gap-3">
+                            <button id="readNowBtn" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium flex items-center">
+                                <i class="fas fa-book-open mr-2"></i> Read Now
+                            </button>
+                            <button id="downloadBtn" class="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg font-medium flex items-center">
+                                <i class="fas fa-download mr-2"></i> Download
+                            </button>
+                            <a id="sourceLink" href="#" target="_blank" class="bg-gray-200 hover:bg-gray-300 text-gray-800 px-6 py-2 rounded-lg font-medium flex items-center">
+                                <i class="fas fa-external-link-alt mr-2"></i> Source
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Categories Section -->
+    <section id ="Genre" class="mb-12">
+        <h2 class="text-2xl font-bold text-gray-800">Search by Categories</h2>  
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+            <a href="#" class="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow flex flex-col items-center">
+                <i class="fas fa-book text-3xl text-blue-500 mb-2"></i>
+                <span class="text-gray-700 font-medium">Fiction</span>
+            </a>
+            <a href="#" class="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow flex flex-col items-center">
+                <i class="fas fa-flask text-3xl text-green-500 mb-2"></i>
+                <span class="text-gray-700 font-medium">Science</span>
+            </a>
+            <a href="#" class="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow flex flex-col items-center">
+                <i class="fas fa-history text-3xl text-purple-500 mb-2"></i>
+                <span class="text-gray-700 font-medium">History</span>
+            </a>
+            <a href="#" class="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow flex flex-col items-center">
+                <i class="fas fa-heart text-3xl text-red-500 mb-2"></i>
+                <span class="text-gray-700 font-medium">Romance</span>
+            </a>
+            <a href="#" class="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow flex flex-col items-center">
+                <i class="fas fa-ghost text-3xl text-indigo-500 mb-2"></i>
+                <span class="text-gray-700 font-medium">Horror</span>
+            </a>
+            <a href="#" class="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow flex flex-col items-center">
+                <i class="fas fa-child text-3xl text-yellow-500 mb-2"></i>
+                <span class="text-gray-700 font-medium">Children</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="About" class="bg-gray-100 border-t border-gray-200 py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">About this web site</h3>
+                    <p class="text-gray-600">Our Free Public Ebook Reader  is a clean, user-friendly website designed to let you browse, read, and download a wide collection of public domain eBooks. All books are completely free to access, with no subscriptions or hidden fees. it delivers a smooth and modern reading experience right at your fingertips.</p>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-600 hover:text-blue-600">Home</a></li>
+                        <li><a href="#searchButton" class="text-gray-600 hover:text-blue-600">Browse Books</a></li>
+                        <li><a href="#Genre" class="text-gray-600 hover:text-blue-600">Categories</a></li>
+                        <li><a href="#About" class="text-gray-600 hover:text-blue-600">About</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">Resources</h3>
+                    <ul class="space-y-2">
+                        <li><a href="https://www.gutenberg.org/" target="_blank" class="text-gray-600 hover:text-blue-600">Project Gutenberg</a></li>
+                        <li><a href="https://openlibrary.org/" target="_blank" class="text-gray-600 hover:text-blue-600">Open Library</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-blue-600">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">Connect</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-600 hover:text-blue-600"><i class="fab fa-github text-xl"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer> 
+    <script src="BookUi.js"></script>
+</body>
+</html>
