@@ -2,7 +2,6 @@
 
 ## Over View
 PublicEbookReader is a clean, user-friendly web-based application designed to make public domain books easily accessible. It enables users to browse, read, and download a wide variety of free eBooks. The application emphasizes simplicity, accessibility, and a modern reading experience.
-<hr>
 
 ## Technology Stack
 
@@ -55,4 +54,3 @@ PublicEbookReader is a clean, user-friendly web-based application designed to ma
 ### License
 
 📄 This project is licensed under the Apache License 2.0. See the LICENSE file for more details.
-<hr>
