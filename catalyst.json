@@ -1,0 +1,11 @@
+{
+  "project_name": "PublicEbookReader",
+  "features": {
+    "client": {
+      "dir": "client"
+    }
+  },
+  "client": {
+    "source": "client"
+  }
+}

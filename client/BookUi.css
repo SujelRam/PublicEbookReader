@@ -1,0 +1,31 @@
+        .book-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        .book-cover {
+            height: 220px;
+            object-fit: cover;
+            transition: all 0.3s ease;
+        }
+        .book-detail-cover {
+            max-height: 400px;
+            object-fit: contain;
+        }
+        .rating-star {
+            color: #fbbf24;
+        }
+        .rating-star.empty {
+            color: #d1d5db;
+        }
+        .search-dropdown {
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        .fade-in {
+            animation: fadeIn 0.3s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    
