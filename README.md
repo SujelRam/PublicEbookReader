@@ -10,8 +10,6 @@ A web application to search, browse, download, and read public domain eBooks. Bu
 
 <b>Resources & Tools : </b>🛠️ Git and GitHub, 🌐 Zoho Catalyst Web Hosting, 🧑‍💻 Jenkins Pipeline for automate testing
 
-### Back-End 
-🧑‍💻 Pure Front-End Project: No dedicated server or database.
-📁 Simulated Backend: Book data is hardcoded in JavaScript as an array of objects
+<b>Back-End : </b>🧑‍💻 Pure Front-End Project: No dedicated server or database.📁 Simulated Backend: Book data is hardcoded in JavaScript as an array of objects
 
 ### ScreenShots
