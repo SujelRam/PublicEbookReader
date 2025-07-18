@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/SujelRam/PublicEbookReader/issues"
   },
-  "homepage": "https://github.com/SujelRam/PublicEbookReader#readme"
+  "homepage": "https://github.com/SujelRam/PublicEbookReader#readme",
+  "devDependencies": {
+    "tailwindcss": "^4.1.11"
+  }
 }
