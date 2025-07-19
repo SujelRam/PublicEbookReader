@@ -1,0 +1,21 @@
+# Ignore development files
+node_modules/
+src/
+.vscode/
+test/
+__tests__/
+coverage/
+*.log
+*.map
+*.md
+
+# Ignore build tools & configs
+webpack.config.js
+*.config.js
+.eslintrc.js
+.babelrc
+tsconfig.json
+
+# Ignore anything not required in production
+package.json
+package-lock.json
