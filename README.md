@@ -17,3 +17,11 @@ A web application to search, browse, download, and read public domain eBooks. Bu
 <b>User Interface</b>
 <img src="Output/Interface.png">
 
+<b>Book View</b>
+<img src="Output/Book View.png">
+
+<b>Search Bar</b>
+<img src="Output/Search Enginee.png">
+
+<b>Categories</b>
+<img src="Output/Categories.png">
