@@ -4,7 +4,6 @@
                 id: 1,
                 title: "Pride and Prejudice",
                 author: "Jane Austen",
-                year: 1813,
                 description: "Pride and Prejudice follows the turbulent relationship between Elizabeth Bennet, the daughter of a country gentleman, and Fitzwilliam Darcy, a rich aristocratic landowner. They must overcome the titular sins of pride and prejudice in order to fall in love and marry.",
                 cover: "https://www.gutenberg.org/cache/epub/1342/pg1342.cover.medium.jpg",
                 rating: 4.5,
@@ -19,7 +18,6 @@
                 id: 2,
                 title: "Frankenstein",
                 author: "Mary Shelley",
-                year: 1818,
                 description: "Frankenstein tells the story of Victor Frankenstein, a young scientist who creates a sapient creature in an unorthodox scientific experiment. The novel explores themes of ambition, hubris, and the ethical limits of scientific discovery.",
                 cover: "https://covers.openlibrary.org/b/id/12752093-M.jpg",
                 rating: 4,
@@ -34,7 +32,6 @@
                 id: 3,
                 title: "The Adventures of Sherlock Holmes",
                 author: "Arthur Conan Doyle",
-                year: 1892,
                 description: "A collection of twelve short stories featuring Sherlock Holmes, the famous detective. The stories are narrated by Holmes's friend and biographer, Dr. Watson, and include some of the detective's most famous cases.",
                 cover: "https://www.gutenberg.org/cache/epub/1661/pg1661.cover.medium.jpg",
                 rating: 4.7,
@@ -49,7 +46,6 @@
                 id: 4,
                 title: "Alice's Adventures in Wonderland",
                 author: "Lewis Carroll",
-                year: 1865,
                 description: "Alice's Adventures in Wonderland tells the story of a girl named Alice who falls down a rabbit hole into a fantasy world populated by peculiar, anthropomorphic creatures. The tale plays with logic, giving the story lasting popularity with adults as well as with children.",
                 cover: "https://www.gutenberg.org/cache/epub/11/pg11.cover.medium.jpg",
                 rating: 4.2,
@@ -64,7 +60,6 @@
                 id: 5,
                 title: "Dracula",
                 author: "Bram Stoker",
-                year: 1897,
                 description: "The novel tells the story of Dracula's attempt to move from Transylvania to England so that he may find new blood and spread the undead curse, and the battle between Dracula and a small group of people led by Professor Abraham Van Helsing.",
                 cover: "https://covers.openlibrary.org/b/id/12622155-L.jpg",
                 rating: 4.1,
@@ -79,7 +74,6 @@
                 id: 6,
                 title: "The Picture of Dorian Gray",
                 author: "Oscar Wilde",
-                year: 1890,
                 description: "The Picture of Dorian Gray tells of a young man named Dorian Gray, the subject of a painting by artist Basil Hallward. Dorian wishes that his portrait could age instead of him. The wish is granted, and Dorian pursues a libertine life of varied amoral experiences while staying young and beautiful.",
                 cover: "https://covers.openlibrary.org/b/id/12752033-M.jpg",
                 rating: 4.3,
@@ -94,7 +88,6 @@
                 id: 7,
                 title: "The Time Machine",
                 author: "H.G. Wells",
-                year: 1895,
                 description: "The Time Machine is a science fiction novel that tells the story of a time traveler who journeys to the year 802,701 AD, where he discovers the childlike Eloi and the monstrous Morlocks. The novel is considered one of the earliest works of science fiction.",
                 cover: "https://covers.openlibrary.org/b/id/12621679-M.jpg",
                 rating: 4,
@@ -109,7 +102,6 @@
                 id: 8,
                 title: "The War of the Worlds",
                 author: "H.G. Wells",
-                year: 1898,
                 description: "The War of the Worlds is a science fiction novel that describes the experiences of an unnamed narrator in Surrey and his younger brother in London as Earth is invaded by Martians. The novel is one of the first stories that details a conflict between mankind and an extraterrestrial race.",
                 cover: "https://www.gutenberg.org/cache/epub/36/pg36.cover.medium.jpg",
                 rating: 4.1,
@@ -124,7 +116,6 @@
                 id: 9,
                 title: "A Tale of Two Cities",
                 author: "Charles Dickens",
-                year: 1859,
                 description: "A Tale of Two Cities is set in London and Paris before and during the French Revolution. The novel tells the story of the French Doctor Manette, his 18-year-long imprisonment in the Bastille in Paris, and his release to live in London with his daughter Lucie.",
                 cover: "https://covers.openlibrary.org/b/id/8324921-M.jpg",
                 rating: 4.3,
@@ -139,7 +130,6 @@
                 id: 10,
                 title: "The Adventures of Tom Sawyer",
                 author: "Mark Twain",
-                year: 1876,
                 description: "The Adventures of Tom Sawyer is about a young boy growing up along the Mississippi River. The story is set in the fictional town of St. Petersburg, inspired by Hannibal, Missouri, where Twain lived as a boy.",
                 cover: "https://www.gutenberg.org/cache/epub/74/pg74.cover.medium.jpg",
                 rating: 4,
@@ -196,7 +186,6 @@
                         <div class="flex">
                             ${renderRatingStars(book.rating)}
                         </div>
-                        <span class="text-xs text-gray-500">${book.year}</span>
                     </div>
                 </div>
             `;
@@ -228,7 +217,6 @@
         function openBookModal(book) {
             document.getElementById('modalTitle').textContent = book.title;
             document.getElementById('modalAuthor').textContent = book.author;
-            document.getElementById('modalYear').textContent = book.year;
             document.getElementById('modalDescription').textContent = book.description;
             document.getElementById('modalCover').src = book.cover;
             document.getElementById('modalPages').textContent = `${book.pages} pages`;
